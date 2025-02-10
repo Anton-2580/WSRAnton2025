@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name" translatable="false">SneakerShopWSR</string>
+    <string name="welcome">WELLCOME</string>
+    <string name="begin">Start</string>
+    <string name="next">Next</string>
+    <string name="lets_start_journey">Let’s Start Journey</string>
+    <string name="you_have_the_power_to">You Have the Power To</string>
+    <string name="sneaker_content_description">sneaker</string>
+    <string name="nike_content_description">sneaker</string>
+    <string name="spring_prev_content_description">sneaker</string>
+    <string name="lets_start_journey_description">Smart, Gorgeous &amp; Fashionable Collection Explor Now</string>
+    <string name="you_have_the_power_to_description">There Are Many Beautiful And Attractive Plants To Your Room</string>
+    <string name="home">Explore</string>
+</resources>

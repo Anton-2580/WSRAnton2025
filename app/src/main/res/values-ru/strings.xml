@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="welcome">ДОБРО ПОЖАЛОВАТЬ</string>
+    <string name="begin">Начать</string>
+    <string name="next">Далее</string>
+    <string name="lets_start_journey">Начнем путешествие</string>
+    <string name="you_have_the_power_to">У вас есть сила, чтобы</string>
+    <string name="nike_content_description">Кроссовок</string>
+    <string name="spring_prev_content_description">Кроссовок</string>
+    <string name="lets_start_journey_description">Умная, великолепная и модная коллекция Изучите сейчас</string>
+    <string name="you_have_the_power_to_description">В вашей комнате много красивых и привлекательных растений</string>
+    <string name="sneaker_content_description">Кроссовок</string>
+    <string name="home">Главная</string>
+</resources>
