@@ -38,3 +38,8 @@ val ProfileIcon: ImageVector
 val MenuIcon: ImageVector
     @Composable
     get() = ImageVector.vectorResource(R.drawable.menu)
+
+
+val AddIcon: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(R.drawable.add)

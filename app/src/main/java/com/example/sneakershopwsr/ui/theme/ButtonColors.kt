@@ -20,14 +20,13 @@ val BackgroundButtonColors = ButtonColors(
 )
 val BackgroundButtonIconColors = BackgroundButtonColors.toIconButtonColors()
 
-val BasketButtonColors = ButtonColors(
+val AccentButtonColors = ButtonColors(
     containerColor = Accent,
     contentColor = Block,
     disabledContainerColor = Color(62, 168, 221),
     disabledContentColor = Block
 )
-val BasketButtonIconColors = BasketButtonColors.toIconButtonColors()
-
+val AccentButtonIconColors = AccentButtonColors.toIconButtonColors()
 
 fun ButtonColors.toIconButtonColors() = IconButtonColors(
     containerColor = containerColor,

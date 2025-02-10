@@ -79,12 +79,14 @@ dependencies {
 
     implementation(libs.kotlinx.serialization.json)
 
-    implementation(libs.androidx.core.splashscreen)
-
     implementation(platform(libs.supabase.bom))
     implementation(libs.postgrest.kt)
+    implementation(libs.storage.kt)
     implementation(libs.auth.kt)
     implementation(libs.realtime.kt)
 
     implementation(libs.bundles.ktor)
+
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
 }

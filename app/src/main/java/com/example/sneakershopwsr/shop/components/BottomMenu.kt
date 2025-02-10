@@ -26,7 +26,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.sneakershopwsr.ui.theme.Accent
-import com.example.sneakershopwsr.ui.theme.BasketButtonIconColors
+import com.example.sneakershopwsr.ui.theme.AccentButtonIconColors
 import com.example.sneakershopwsr.ui.theme.BasketIcon
 import com.example.sneakershopwsr.ui.theme.BottomMenuIcon
 import com.example.sneakershopwsr.ui.theme.HomeIcon
@@ -82,14 +82,14 @@ fun BottomMenu(
 
                             IconButton(
                                 onClick = { onAction(it) },
-                                colors = BasketButtonIconColors,
+                                colors = AccentButtonIconColors,
                                 modifier = Modifier
                                     .padding(bottom = padding)
                                     .size(size)
                                     .shadow(
                                         elevation = 40.dp,
                                         shape = CircleShape,
-                                        spotColor = BasketButtonIconColors.containerColor
+                                        spotColor = AccentButtonIconColors.containerColor
                                     ),
                             ) {
                                 Icon(

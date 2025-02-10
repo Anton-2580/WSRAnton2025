@@ -6,19 +6,24 @@ import com.example.sneakershopwsr.BuildConfig
 import com.example.sneakershopwsr.auth.data.AuthSessionStorage
 import com.example.sneakershopwsr.auth.domain.AuthInfo
 import com.example.sneakershopwsr.core.domain.SessionStorage
+import com.example.sneakershopwsr.shop.data.repository.SupabaseRepositoryImpl
+import com.example.sneakershopwsr.shop.domain.SupabaseRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import io.github.jan.supabase.SupabaseClient
+import io.github.jan.supabase.auth.Auth
 import io.github.jan.supabase.createSupabaseClient
+import io.github.jan.supabase.postgrest.Postgrest
+import io.github.jan.supabase.storage.Storage
 import javax.inject.Singleton
 
 
 @Module
 @InstallIn(SingletonComponent::class)
-class AppModule {
+object AppModule {
     @Provides
     @Singleton
     fun provideSharedPreferences(@ApplicationContext context: Context): SharedPreferences {
@@ -37,6 +42,15 @@ class AppModule {
         supabaseUrl = BuildConfig.API_URL,
         supabaseKey = BuildConfig.API_KEY,
         builder = {
+            install(Postgrest)
+            install(Storage)
+            install(Auth)
         }
     )
+
+    @Provides
+    @Singleton
+    fun provideSupabaseRepository(supabaseClient: SupabaseClient): SupabaseRepository =
+        SupabaseRepositoryImpl(supabaseClient)
+
 }
