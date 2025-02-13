@@ -25,6 +25,7 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.sneakershopwsr.shop.domain.BottomMenuIcons
 import com.example.sneakershopwsr.ui.theme.Accent
 import com.example.sneakershopwsr.ui.theme.AccentButtonIconColors
 import com.example.sneakershopwsr.ui.theme.BasketIcon
@@ -74,7 +75,7 @@ fun BottomMenu(
                 items(BottomMenuIcons.entries.toTypedArray()) {
                     icon = getIcon(it)
                     color = if (it == selected) Accent else Color.Black
-                    enabled = (it == selected)
+                    enabled = (it != selected)
 
                     when {
                         BottomMenuIcons.Basket == it -> {

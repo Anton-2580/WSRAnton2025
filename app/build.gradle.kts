@@ -5,9 +5,9 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 
-    alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.dagger.hilt)
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -73,8 +73,8 @@ dependencies {
     implementation(libs.compose.navigation)
 
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
-    kapt(libs.androidx.hilt.compiler)
+    ksp(libs.hilt.compiler)
+    ksp(libs.androidx.hilt.compiler)
     implementation(libs.compose.hilt.navigation)
 
     implementation(libs.kotlinx.serialization.json)
@@ -86,6 +86,10 @@ dependencies {
     implementation(libs.realtime.kt)
 
     implementation(libs.bundles.ktor)
+
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
 
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)

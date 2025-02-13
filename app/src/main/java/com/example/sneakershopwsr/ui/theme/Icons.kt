@@ -39,6 +39,10 @@ val MenuIcon: ImageVector
     @Composable
     get() = ImageVector.vectorResource(R.drawable.menu)
 
+val BackIcon: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(R.drawable.back)
+
 
 val AddIcon: ImageVector
     @Composable

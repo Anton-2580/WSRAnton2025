@@ -11,4 +11,9 @@
     <string name="lets_start_journey_description">Smart, Gorgeous &amp; Fashionable Collection Explor Now</string>
     <string name="you_have_the_power_to_description">There Are Many Beautiful And Attractive Plants To Your Room</string>
     <string name="home">Explore</string>
+    <string name="categories">categories</string>
+    <string name="more">more</string>
+    <string name="popular">popular</string>
+    <string name="stocks">stocks</string>
+    <string name="favorite">Favorite</string>
 </resources>

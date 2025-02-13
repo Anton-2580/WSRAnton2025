@@ -17,6 +17,7 @@ hiltCompiler = "1.2.0"
 composeHiltNavigation = "1.2.0"
 ktor = "3.0.3"
 ktorClientLogging = "2.3.8"
+room = "2.6.1"
 coilCompose = "3.1.0"
 
 [libraries]
@@ -60,6 +61,10 @@ storage-kt = { module = "io.github.jan-tennert.supabase:storage-kt" }
 auth-kt = { module = "io.github.jan-tennert.supabase:auth-kt" }
 realtime-kt = { module = "io.github.jan-tennert.supabase:realtime-kt" }
 
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
@@ -67,7 +72,6 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 
 dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroid" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 
 [bundles]
 ktor = [

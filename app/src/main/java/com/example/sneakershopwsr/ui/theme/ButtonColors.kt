@@ -11,6 +11,7 @@ val WhiteButtonColors = ButtonColors(
     disabledContainerColor = Color(240f, 240f, 240f),
     disabledContentColor = Text
 )
+val WhiteButtonIconColors = WhiteButtonColors.toIconButtonColors()
 
 val BackgroundButtonColors = ButtonColors(
     containerColor = Background,
