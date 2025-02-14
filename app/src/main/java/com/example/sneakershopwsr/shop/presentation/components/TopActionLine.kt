@@ -1,6 +1,7 @@
 package com.example.sneakershopwsr.shop.presentation.components
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Icon
@@ -15,22 +16,21 @@ import com.example.sneakershopwsr.ui.theme.WhiteButtonIconColors
 
 @Composable
 fun TopActionLine(
-    onLiftButtonClick: () -> Unit,
-    onRightButtonClick: () -> Unit,
     leftIcon: ImageVector,
-    rightIcon: ImageVector,
+    onLiftButtonClick: () -> Unit,
+    rightIcon: ImageVector? = null,
+    onRightButtonClick: (() -> Unit)? = null,
     colors: IconButtonColors = WhiteButtonIconColors,
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit,
 ) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween,
+    Box(
         modifier = modifier.fillMaxWidth(),
     ) {
         IconButton(
             onClick = onLiftButtonClick,
             colors = colors,
+            modifier = Modifier.align(Alignment.CenterStart)
         ) {
             Icon(
                 imageVector = leftIcon,
@@ -38,16 +38,21 @@ fun TopActionLine(
             )
         }
 
-        content()
+        Box(modifier = Modifier.align(Alignment.Center)) {
+            content()
+        }
 
-        IconButton(
-            onClick = onRightButtonClick,
-            colors = colors,
-        ) {
-            Icon(
-                imageVector = rightIcon,
-                contentDescription = "",
-            )
+        if (rightIcon !== null && onRightButtonClick !== null) {
+            IconButton(
+                onClick = onRightButtonClick,
+                colors = colors,
+                modifier = Modifier.align(Alignment.CenterEnd)
+            ) {
+                Icon(
+                    imageVector = rightIcon,
+                    contentDescription = "",
+                )
+            }
         }
     }
 }

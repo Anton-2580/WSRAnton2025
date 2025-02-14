@@ -1,5 +1,6 @@
 package com.example.sneakershopwsr.core.navigation.graphs
 
+import androidx.compose.foundation.layout.Box
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
@@ -28,7 +29,9 @@ data object ShopBasket
 
 
 @Serializable
-data object OutDoor
+data class OutDoor(
+    val categoryId: Int,
+)
 
 @Serializable
 data object Popular
@@ -50,6 +53,7 @@ fun NavGraphBuilder.shopGraph(navController: NavHostController) {
                 BottomMenuIcons.Profile -> navController.navigate(Profile)
             }
         }
+        val onBackClick: () -> Unit = { navController.popBackStack() }
 
         composable<ShopHome> {
             ShopHomeScreen(
@@ -61,18 +65,23 @@ fun NavGraphBuilder.shopGraph(navController: NavHostController) {
                         ShopHomeActions.OnMoreStocks -> navController.navigate(Stocks)
                     }
                 },
-                onSelectCategory = { navController.navigate(OutDoor) },
+                onSelectCategory = { navController.navigate(OutDoor(it)) },
             )
         }
 
         composable<ShopFavorites> {
             ShopFavoriteScreen(
                 onIconAction = onIconAction,
+                onLiftButtonClick = onBackClick,
+                onRightButtonClick = {  },
             )
         }
 
         composable<ShopBasket> {
-            ShopBasketScreen()
+            ShopBasketScreen(
+                onIconAction = onIconAction,
+                onLiftButtonClick = onBackClick,
+            )
         }
     }
 }

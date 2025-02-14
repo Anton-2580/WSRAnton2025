@@ -47,3 +47,11 @@ val BackIcon: ImageVector
 val AddIcon: ImageVector
     @Composable
     get() = ImageVector.vectorResource(R.drawable.add)
+
+val MinusIcon: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(R.drawable.minus)
+
+val TrashIcon: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(R.drawable.trash)

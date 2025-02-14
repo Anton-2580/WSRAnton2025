@@ -20,6 +20,8 @@ import com.example.sneakershopwsr.ui.theme.Text
 @Composable
 fun ShopFavoriteScreen(
     onIconAction: (BottomMenuIcons) -> Unit,
+    onLiftButtonClick: () -> Unit,
+    onRightButtonClick: () -> Unit,
 ) {
     ShopScaffold(
         onIconAction = onIconAction,
@@ -29,8 +31,8 @@ fun ShopFavoriteScreen(
             modifier = Modifier.padding(innerPadding),
         ) {
             TopActionLine(
-                onLiftButtonClick = {},
-                onRightButtonClick = {},
+                onLiftButtonClick = onLiftButtonClick,
+                onRightButtonClick = onRightButtonClick,
                 leftIcon = BackIcon,
                 rightIcon = LikeIcon,
             ) {

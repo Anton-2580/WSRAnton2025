@@ -16,4 +16,14 @@ class BasketViewModel @Inject constructor(
             fullStackDataInteractor.getProducts { _products.value = it }
         }
     }
+
+    fun onPlusClick(productId: Int) {
+    }
+
+    fun onMinusClick(productId: Int) {
+    }
+
+    fun onDeleteClick(productId: Int) {
+    }
+
 }

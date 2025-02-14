@@ -63,7 +63,7 @@ fun OnboardingScreen(
             verticalArrangement = Arrangement.SpaceAround,
         ) {
             AnimatedContent(
-                targetState = viewModel.targetState,
+                targetState = viewModel.targetState.value,
                 transitionSpec = {
                     fadeIn(
                         animationSpec = tween(durationMillis = 300, delayMillis = 150)
@@ -78,7 +78,7 @@ fun OnboardingScreen(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.SpaceAround,
                 ) {
-                    when (state.value.step) {
+                    when (state.step) {
                         0 -> {
                             OnboardWelcome()
                             text.value = stringResource(R.string.begin)

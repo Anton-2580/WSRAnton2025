@@ -16,4 +16,5 @@
     <string name="popular">popular</string>
     <string name="stocks">stocks</string>
     <string name="favorite">Favorite</string>
+    <string name="products_in_basket">goods</string>
 </resources>
