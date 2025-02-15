@@ -1,4 +1,4 @@
-package com.example.sneakershopwsr.shop.presentation.screens
+package com.example.sneakershopwsr.shop.presentation.home
 
 import androidx.compose.animation.core.AnimationVector
 import androidx.compose.animation.core.FiniteAnimationSpec
@@ -12,24 +12,20 @@ import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Badge
-import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -54,19 +50,20 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.sneakershopwsr.R
 import com.example.sneakershopwsr.core.domain.models.ProductInfoWithImages
 import com.example.sneakershopwsr.core.presentation.components.BadgeButton
+import com.example.sneakershopwsr.shop.domain.BigMenuItems
 import com.example.sneakershopwsr.shop.domain.BottomMenuIcons
 import com.example.sneakershopwsr.shop.domain.ShopHomeActions
 import com.example.sneakershopwsr.shop.presentation.CategoryState
 import com.example.sneakershopwsr.shop.presentation.components.BigMenu
 import com.example.sneakershopwsr.shop.presentation.components.Product
 import com.example.sneakershopwsr.shop.presentation.components.ShopScaffold
-import com.example.sneakershopwsr.shop.presentation.view_models.HomeViewModel
 import com.example.sneakershopwsr.ui.theme.Accent
 import com.example.sneakershopwsr.ui.theme.Background
 import com.example.sneakershopwsr.ui.theme.BasketIcon
 import com.example.sneakershopwsr.ui.theme.Text
 import com.example.sneakershopwsr.ui.theme.MenuIcon
 import com.example.sneakershopwsr.ui.theme.WhiteButtonColors
+import kotlinx.coroutines.delay
 
 
 const val EXIT = true
@@ -111,7 +108,7 @@ fun ShopHomeScreen(
         label = label,
         transitionSpec = { animateMenu() },
         targetValueByState = {
-            if(it) exitValue else entranceValue
+            if (it) exitValue else entranceValue
         },
     )
 
@@ -136,9 +133,30 @@ fun ShopHomeScreen(
         entranceValue = 40.dp,
     )
 
+    val action: MutableState<BigMenuItems?> = remember { mutableStateOf(null) }
+    LaunchedEffect(action.value) {
+        val value = action.value
+        if (value !== null) {
+            delay(1000L)
+
+            when (value) {
+                BigMenuItems.Profile -> onIconAction(BottomMenuIcons.Profile)
+                BigMenuItems.Basket -> onIconAction(BottomMenuIcons.Basket)
+                BigMenuItems.Favorite -> onIconAction(BottomMenuIcons.Favorites)
+                BigMenuItems.Orders -> {}
+                BigMenuItems.Notify -> onIconAction(BottomMenuIcons.Notifications)
+                BigMenuItems.Settings -> {}
+                BigMenuItems.Logout -> {}
+            }
+        }
+    }
+
     Box {
         BigMenu(
-            onActions = {},
+            onActions = {
+                currentState.value = !currentState.value
+                action.value = it
+            },
         )
 
         ShopHomeScreenBody(
@@ -172,13 +190,8 @@ fun ShopHomeScreenBody(
         onIconAction = onIconAction,
         selected = BottomMenuIcons.Home,
         modifier = modifier,
-    ) { innerPadding ->
-        Column(
-            verticalArrangement = Arrangement.SpaceAround,
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
-        ) {
+        verticalArrangement = Arrangement.SpaceAround,
+    ) { spacer ->
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -244,7 +257,8 @@ fun ShopHomeScreenBody(
             ) {
                 Text(text = "Ad")
             }
-        }
+
+        spacer()
     }
 }
 

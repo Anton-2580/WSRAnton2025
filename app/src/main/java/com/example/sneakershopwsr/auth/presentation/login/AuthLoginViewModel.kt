@@ -4,7 +4,7 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.lifecycle.viewModelScope
 import com.example.sneakershopwsr.auth.domain.UserDataValidator
 import com.example.sneakershopwsr.auth.domain.repository.AuthInteractor
-import com.example.sneakershopwsr.auth.presentation.AuthLoginRegisterViewModel
+import com.example.sneakershopwsr.auth.presentation.BaseAuthViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
@@ -14,10 +14,8 @@ import javax.inject.Inject
 @HiltViewModel
 class AuthLoginViewModel @Inject constructor(
     private val userDataValidator: UserDataValidator,
-    authInteractor: AuthInteractor
-): AuthLoginRegisterViewModel(
-    authInteractor,
-) {
+    private val authInteractor: AuthInteractor
+): BaseAuthViewModel() {
     init {
         combine(
             snapshotFlow { loginRegisterState.value.email.text },
@@ -27,5 +25,14 @@ class AuthLoginViewModel @Inject constructor(
                 canSign = password.isNotBlank() && userDataValidator.isEmailValid(email.toString())
             )
         }.launchIn(viewModelScope)
+    }
+
+    fun signIn() {
+        workWithData {
+            authInteractor.signIn(
+                email = loginRegisterState.value.email.text.toString(),
+                password = loginRegisterState.value.password.text.toString(),
+            )
+        }
     }
 }

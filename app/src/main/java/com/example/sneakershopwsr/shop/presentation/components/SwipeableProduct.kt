@@ -34,13 +34,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import coil3.ImageLoader
 import coil3.compose.rememberAsyncImagePainter
 import coil3.request.crossfade
-import com.example.sneakershopwsr.core.domain.models.ProductImageInfo
 import com.example.sneakershopwsr.core.domain.models.ProductInfoWithImages
 import com.example.sneakershopwsr.shop.domain.SwipeableProductActions
 import com.example.sneakershopwsr.ui.theme.Accent
@@ -205,25 +203,3 @@ fun SwipeableProduct(
     }
 }
 
-
-@Preview
-@Composable
-fun SwipeableProductPreview() {
-    SwipeableProduct(
-        ProductInfoWithImages(
-            id = 1,
-            name = "Nike Air Max",
-            price = 752f,
-            description = "",
-            categoryId = 1,
-            images = listOf(
-                ProductImageInfo(
-                    id = 1,
-                    url = "https://eqlghtbaclnlalqtwbrp.supabase.co/storage/v1/object/public/sneaker_images/Nike%20Air%20Max.png",
-                    productId = 1,
-                ),
-            )
-        ),
-        onActions = {  },
-    )
-}

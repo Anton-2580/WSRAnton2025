@@ -1,17 +1,15 @@
 package com.example.sneakershopwsr.core.navigation.graphs
 
-import androidx.compose.foundation.layout.Box
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import com.example.sneakershopwsr.core.navigation.Notifications
-import com.example.sneakershopwsr.core.navigation.Profile
 import com.example.sneakershopwsr.shop.domain.BottomMenuIcons
-import com.example.sneakershopwsr.shop.presentation.screens.ShopHomeScreen
+import com.example.sneakershopwsr.shop.presentation.home.ShopHomeScreen
 import com.example.sneakershopwsr.shop.domain.ShopHomeActions
-import com.example.sneakershopwsr.shop.presentation.screens.ShopBasketScreen
-import com.example.sneakershopwsr.shop.presentation.screens.ShopFavoriteScreen
+import com.example.sneakershopwsr.shop.presentation.basket.ShopBasketScreen
+import com.example.sneakershopwsr.shop.presentation.favorites.ShopFavoriteScreen
 import kotlinx.serialization.Serializable
 
 

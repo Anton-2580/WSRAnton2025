@@ -17,4 +17,26 @@
     <string name="stocks">Акции</string>
     <string name="favorite">Избранное</string>
     <string name="auth_comment">Заполните Свои данные или продолжите через социальные медиа</string>
+    <string name="authorization">Привет!</string>
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+    <string name="recovery_password">Воcстановить</string>
+    <string name="sign_in">Войти</string>
+    <string name="is_first">Вы впервые? </string>
+    <string name="go_to_resistration">Создать пользователя</string>
+    <string name="registration">Регистрация</string>
+    <string name="sign_up">Зарегистрироваться</string>
+    <string name="have_accaunt">Есть аккаунт? </string>
+    <string name="go_to_login">Войти</string>
+    <string name="name">Имя</string>
+    <string name="basket">Корзина</string>
+    <string name="profile_name">Профиль</string>
+    <string name="basket_name">Корзина</string>
+    <string name="favorite_name">Избранное</string>
+    <string name="orders_name">Заказы</string>
+    <string name="notify_name">Уведомления</string>
+    <string name="settings_name">Настройки</string>
+    <string name="logout_name">Выйти</string>
+    <string name="password_recovery_name">Забыл Пароль</string>
+    <string name="enter_your_ata_for_reset">Введите свою учетную запись для сброса</string>
 </resources>

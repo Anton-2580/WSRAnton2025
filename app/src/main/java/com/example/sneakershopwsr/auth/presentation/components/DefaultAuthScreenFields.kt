@@ -31,13 +31,16 @@ fun EmailTextField(
 fun PasswordTextField(
     state: TextFieldState,
     modifier: Modifier = Modifier,
+    textBottomAction: String? = stringResource(R.string.recovery_password),
+    onTextBottomActionClick: () -> Unit = {},
 ) {
     val visiblePassword = remember { mutableStateOf(false) }
     AuthSecureTextField(
         state = state,
         modifier = modifier,
+        onTextBottomActionClick = onTextBottomActionClick,
         textFieldName = stringResource(R.string.password),
-        textBottomAction = stringResource(R.string.recovery_password),
+        textBottomAction = textBottomAction,
         visibleTextObfuscationMode = visiblePassword.value,
         icon = if (visiblePassword.value) OpenEyeIcon else CloseEyeIcon,
         onIconClick = { visiblePassword.value = !visiblePassword.value }

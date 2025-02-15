@@ -1,9 +1,11 @@
-package com.example.sneakershopwsr.shop.presentation.view_models
+package com.example.sneakershopwsr.shop.presentation.home
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.viewModelScope
+import com.example.sneakershopwsr.core.data.network.NetworkEvents
 import com.example.sneakershopwsr.core.domain.repository.SupabaseRepository
+import com.example.sneakershopwsr.shop.presentation.BaseViewModel
 import com.example.sneakershopwsr.shop.presentation.CategoryState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -19,12 +21,17 @@ class HomeViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            _products.value = supabaseRepository.getProductsInfoWithImagesAndBaskets(COUNT_SHOWN)
-                .map { it.toProductInfoWithImages() }
+            try {
+                _products.value =
+                    supabaseRepository.getProductsInfoWithImagesAndBaskets(COUNT_SHOWN)
+                        .map { it.toProductInfoWithImages() }
 
-            _categoryState.value = categoryState.value.copy(
-                categories = supabaseRepository.getCategories(),
-            )
+                _categoryState.value = categoryState.value.copy(
+                    categories = supabaseRepository.getCategories(),
+                )
+            } catch (e: Exception) {
+                _eventFlow.emit(NetworkEvents.Error(e.message.toString()))
+            }
         }
     }
 

@@ -1,12 +1,10 @@
-package com.example.sneakershopwsr.shop.presentation.screens
+package com.example.sneakershopwsr.shop.presentation.basket
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -18,7 +16,6 @@ import com.example.sneakershopwsr.shop.domain.SwipeableProductActions
 import com.example.sneakershopwsr.shop.presentation.components.ShopScaffold
 import com.example.sneakershopwsr.shop.presentation.components.SwipeableProduct
 import com.example.sneakershopwsr.core.presentation.components.TopActionLine
-import com.example.sneakershopwsr.shop.presentation.view_models.BasketViewModel
 import com.example.sneakershopwsr.ui.theme.BackIcon
 import com.example.sneakershopwsr.ui.theme.Text
 
@@ -31,11 +28,10 @@ fun ShopBasketScreen(
 ) {
     ShopScaffold(
         onIconAction = onIconAction,
-        selected = BottomMenuIcons.Favorites,
-    ) { innerPadding ->
+        selected = BottomMenuIcons.Basket,
+    ) { spacer ->
         LazyColumn(
             verticalArrangement = Arrangement.spacedBy(10.dp),
-            modifier = Modifier.padding(innerPadding)
         ) {
             item {
                 TopActionLine(
@@ -43,7 +39,7 @@ fun ShopBasketScreen(
                     leftIcon = BackIcon,
                 ) {
                     Text(
-                        text = stringResource(R.string.favorite),
+                        text = stringResource(R.string.basket),
                         fontWeight = FontWeight.Bold,
                         fontSize = 25.sp,
                         color = Text,
@@ -66,6 +62,10 @@ fun ShopBasketScreen(
                         }
                     },
                 )
+            }
+
+            item {
+                spacer()
             }
         }
     }

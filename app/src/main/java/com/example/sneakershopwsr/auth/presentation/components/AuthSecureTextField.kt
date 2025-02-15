@@ -8,16 +8,21 @@ import androidx.compose.foundation.text.BasicSecureTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.input.TextFieldState
 import androidx.compose.foundation.text.input.TextObfuscationMode
+import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.withLink
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.sneakershopwsr.ui.theme.SubTextDark
@@ -28,6 +33,7 @@ fun AuthSecureTextField(
     state: TextFieldState,
     textFieldName: String,
     textBottomAction: String? = null,
+    onTextBottomActionClick: () -> Unit = {},
     textBottomActionColor: Color = SubTextDark,
     itemSpace: Dp =  5.dp,
     icon: ImageVector? = null,
@@ -77,7 +83,15 @@ fun AuthSecureTextField(
 
         if (textBottomAction !== null) {
             Text(
-                text = textBottomAction,
+                text = buildAnnotatedString {
+                    withLink(link = LinkAnnotation.Clickable(
+                        tag = "",
+                        styles = null,
+                        linkInteractionListener = { onTextBottomActionClick() },
+                    )) {
+                        append(textBottomAction)
+                    }
+                },
                 color = textBottomActionColor,
                 modifier = Modifier.align(Alignment.End),
             )

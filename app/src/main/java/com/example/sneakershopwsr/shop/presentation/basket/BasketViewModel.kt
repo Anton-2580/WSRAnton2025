@@ -1,7 +1,8 @@
-package com.example.sneakershopwsr.shop.presentation.view_models
+package com.example.sneakershopwsr.shop.presentation.basket
 
 import androidx.lifecycle.viewModelScope
 import com.example.sneakershopwsr.core.domain.repository.FullStackDataInteractor
+import com.example.sneakershopwsr.shop.presentation.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

@@ -17,6 +17,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.SubcomposeAsyncImage
@@ -26,7 +28,9 @@ import com.example.sneakershopwsr.ui.theme.AccentButtonColors
 import com.example.sneakershopwsr.ui.theme.AddIcon
 import com.example.sneakershopwsr.ui.theme.BackgroundButtonIconColors
 import com.example.sneakershopwsr.ui.theme.Block
+import com.example.sneakershopwsr.ui.theme.FillLikeIcon
 import com.example.sneakershopwsr.ui.theme.LikeIcon
+import com.example.sneakershopwsr.ui.theme.Red
 
 
 @Composable
@@ -35,6 +39,7 @@ fun Product(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
     onAddClick: () -> Unit,
+    liked: Boolean = false,
 ) {
     Box(
         modifier = modifier
@@ -42,13 +47,24 @@ fun Product(
             .background(color = Block)
             .clickable { onClick() }
     ) {
+        val likeIcon: ImageVector
+        val likeColor: Color
+        if (liked) {
+            likeIcon = FillLikeIcon
+            likeColor = Red
+        } else {
+            likeIcon = LikeIcon
+            likeColor = LikeIcon.tintColor
+        }
+
         IconButton(
             colors = BackgroundButtonIconColors,
             onClick = onClick,
         ) {
             Icon(
-                imageVector = LikeIcon,
+                imageVector = likeIcon,
                 contentDescription = "",
+                tint = likeColor,
             )
         }
 
@@ -85,26 +101,3 @@ fun Product(
     }
 }
 
-
-@Preview
-@Composable
-fun ProductPreview() {
-    Product(
-        productInfo = ProductInfoWithImages(
-            id = 0,
-            name = "Nike",
-            price = 100f,
-            description = "",
-            categoryId = 0,
-            images = listOf(
-                ProductImageInfo(
-                    1,
-                    "https://eqlghtbaclnlalqtwbrp.supabase.co/storage/v1/object/public/sneaker_images/Nike%20Air%20Max.png",
-                    1,
-                )
-            )
-        ),
-        onClick = {},
-        onAddClick = {},
-    )
-}

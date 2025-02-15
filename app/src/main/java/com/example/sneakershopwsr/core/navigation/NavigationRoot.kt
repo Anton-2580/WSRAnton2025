@@ -15,7 +15,6 @@ import com.example.sneakershopwsr.core.navigation.graphs.shopGraph
 import com.example.sneakershopwsr.core.navigation.graphs.splashGraph
 import kotlinx.serialization.Serializable
 
-import com.example.sneakershopwsr.core.navigation.graphs.AuthGraph
 
 @Composable
 fun NavigationRoot(
@@ -46,5 +45,3 @@ fun NavigationRoot(
 @Serializable
 data object Notifications
 
-@Serializable
-data object Profile

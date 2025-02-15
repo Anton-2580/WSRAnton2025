@@ -6,14 +6,14 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class AuthInfoSerializable(
-    val token: String
+    val id: String
 )
 
 
 fun AuthInfoSerializable.toAuthInfo() = AuthInfo(
-    token = token
+    id = id
 )
 
 fun AuthInfo.toAuthInfoSerializable() = AuthInfoSerializable(
-    token = token
+    id = id
 )

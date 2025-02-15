@@ -30,4 +30,16 @@
     <string name="have_accaunt">"Already Have Account? "</string>
     <string name="go_to_login">Log In</string>
     <string name="name">name</string>
+    <string name="basket">Cart</string>
+    <string name="profile_name">Profile</string>
+    <string name="basket_name">Basket</string>
+    <string name="favorite_name">Favorites</string>
+    <string name="orders_name">Orders</string>
+    <string name="notify_name">Notification</string>
+    <string name="settings_name">Settings</string>
+    <string name="logout_name">Logout</string>
+    <string name="password_recovery_name">Forgot Password</string>
+    <string name="enter_your_ata_for_reset">Enter your Email account to reset\nyour password</string>
+    <string name="send">Send</string>
+    <string name="not_found_user_data">Failed to load user data</string>
 </resources>

@@ -9,6 +9,7 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.sneakershopwsr.R
 import com.example.sneakershopwsr.ui.theme.Block
@@ -35,5 +36,6 @@ fun OnboardYouHaveThePower() {
     Text(
         text = stringResource(R.string.you_have_the_power_to_description),
         color = GrayD8,
+        textAlign = TextAlign.Center,
     )
 }

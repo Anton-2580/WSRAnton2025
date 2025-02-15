@@ -1,4 +1,4 @@
-package com.example.sneakershopwsr.shop.components
+package com.example.sneakershopwsr.core.presentation.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -74,7 +74,8 @@ fun BottomMenu(
 
                 items(BottomMenuIcons.entries.toTypedArray()) {
                     icon = getIcon(it)
-                    color = if (it == selected) Accent else Color.Black
+                    val disabledColor = Color.Black
+                    color = if (it == selected) Accent else disabledColor
                     enabled = (it != selected)
 
                     when {
@@ -84,6 +85,7 @@ fun BottomMenu(
                             IconButton(
                                 onClick = { onAction(it) },
                                 colors = AccentButtonIconColors,
+                                enabled = enabled,
                                 modifier = Modifier
                                     .padding(bottom = padding)
                                     .size(size)
@@ -96,7 +98,7 @@ fun BottomMenu(
                                 Icon(
                                     imageVector = BasketIcon,
                                     contentDescription = "",
-                                    tint = color
+                                    tint = disabledColor
                                 )
                             }
                         }

@@ -19,11 +19,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withLink
 import androidx.compose.ui.unit.dp
 import coil3.compose.SubcomposeAsyncImage
+import com.example.sneakershopwsr.R
 import com.example.sneakershopwsr.core.presentation.components.BadgeButton
 import com.example.sneakershopwsr.shop.domain.BigMenuItems
 import com.example.sneakershopwsr.ui.theme.Accent
@@ -106,7 +108,17 @@ fun BigMenu(
                                 linkInteractionListener = { onActions(item) },
                             )
                         ) {
-                            append(item.name)
+                            append(
+                                when(item) {
+                                    BigMenuItems.Profile -> stringResource(R.string.profile_name)
+                                    BigMenuItems.Basket -> stringResource(R.string.basket_name)
+                                    BigMenuItems.Favorite -> stringResource(R.string.favorite_name)
+                                    BigMenuItems.Orders -> stringResource(R.string.orders_name)
+                                    BigMenuItems.Notify -> stringResource(R.string.notify_name)
+                                    BigMenuItems.Settings -> stringResource(R.string.settings_name)
+                                    BigMenuItems.Logout -> stringResource(R.string.logout_name)
+                                }
+                            )
                         }
                     }
                 )

@@ -1,4 +1,4 @@
-package com.example.sneakershopwsr.auth.domain
+package com.example.sneakershopwsr.auth.presentation
 
 import androidx.compose.foundation.text.input.TextFieldState
 
