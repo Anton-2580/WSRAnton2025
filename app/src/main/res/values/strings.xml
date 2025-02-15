@@ -17,4 +17,17 @@
     <string name="stocks">stocks</string>
     <string name="favorite">Favorite</string>
     <string name="products_in_basket">goods</string>
+    <string name="authorization">Hello!</string>
+    <string name="auth_comment">Fill your details or continue with social media</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="recovery_password">Recovery Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="is_first">"New User? "</string>
+    <string name="go_to_resistration">Create Account</string>
+    <string name="registration">Registration</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="have_accaunt">"Already Have Account? "</string>
+    <string name="go_to_login">Log In</string>
+    <string name="name">name</string>
 </resources>

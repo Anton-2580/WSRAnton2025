@@ -19,9 +19,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Badge
+import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -50,6 +53,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.sneakershopwsr.R
 import com.example.sneakershopwsr.core.domain.models.ProductInfoWithImages
+import com.example.sneakershopwsr.core.presentation.components.BadgeButton
 import com.example.sneakershopwsr.shop.domain.BottomMenuIcons
 import com.example.sneakershopwsr.shop.domain.ShopHomeActions
 import com.example.sneakershopwsr.shop.presentation.CategoryState
@@ -58,6 +62,8 @@ import com.example.sneakershopwsr.shop.presentation.components.Product
 import com.example.sneakershopwsr.shop.presentation.components.ShopScaffold
 import com.example.sneakershopwsr.shop.presentation.view_models.HomeViewModel
 import com.example.sneakershopwsr.ui.theme.Accent
+import com.example.sneakershopwsr.ui.theme.Background
+import com.example.sneakershopwsr.ui.theme.BasketIcon
 import com.example.sneakershopwsr.ui.theme.Text
 import com.example.sneakershopwsr.ui.theme.MenuIcon
 import com.example.sneakershopwsr.ui.theme.WhiteButtonColors
@@ -194,8 +200,11 @@ fun ShopHomeScreenBody(
                     color = Text,
                 )
 
-                Box {
-                }
+                BadgeButton(
+                    onClick = { onIconAction(BottomMenuIcons.Basket) },
+                    icon = BasketIcon,
+                    color = Background,
+                )
             }
 
             Text(stringResource(R.string.categories))

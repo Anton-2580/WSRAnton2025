@@ -1,11 +1,10 @@
 package com.example.sneakershopwsr.core.data.repository
 
-import com.example.sneakershopwsr.core.data.bd.ShopDatabase
-import com.example.sneakershopwsr.core.data.bd.entities.BasketEntity
-import com.example.sneakershopwsr.core.data.bd.entities.ProductCategoryEntity
-import com.example.sneakershopwsr.core.data.bd.entities.ProductEntity
-import com.example.sneakershopwsr.core.data.bd.entities.ProductImageEntity
-import com.example.sneakershopwsr.core.data.bd.entities.toProductInfoWithImagesAndBaskets
+import com.example.sneakershopwsr.core.data.local.ShopDatabase
+import com.example.sneakershopwsr.core.data.local.entities.BasketEntity
+import com.example.sneakershopwsr.core.data.local.entities.ProductEntity
+import com.example.sneakershopwsr.core.data.local.entities.ProductImageEntity
+import com.example.sneakershopwsr.core.data.local.entities.toProductInfoWithImagesAndBaskets
 import com.example.sneakershopwsr.core.domain.models.ProductInfoWithImagesAndCategoriesAndBaskets
 import com.example.sneakershopwsr.core.domain.models.toProductCategoryEntity
 import com.example.sneakershopwsr.core.domain.repository.DatabaseRepository

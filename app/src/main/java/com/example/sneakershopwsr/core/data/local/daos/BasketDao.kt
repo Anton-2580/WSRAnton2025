@@ -1,11 +1,11 @@
-package com.example.sneakershopwsr.core.data.bd.daos
+package com.example.sneakershopwsr.core.data.local.daos
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.sneakershopwsr.core.data.bd.entities.BasketEntity
+import com.example.sneakershopwsr.core.data.local.entities.BasketEntity
 
 
 @Dao

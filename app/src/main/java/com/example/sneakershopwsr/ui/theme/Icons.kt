@@ -34,6 +34,18 @@ val ProfileIcon: ImageVector
     @Composable
     get() = ImageVector.vectorResource(R.drawable.profile)
 
+val SettingsIcon: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(R.drawable.settings)
+
+val OrdersIcon: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(R.drawable.orders)
+
+val LogoutIcon: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(R.drawable.logout)
+
 
 val MenuIcon: ImageVector
     @Composable
@@ -55,3 +67,12 @@ val MinusIcon: ImageVector
 val TrashIcon: ImageVector
     @Composable
     get() = ImageVector.vectorResource(R.drawable.trash)
+
+
+val OpenEyeIcon: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(R.drawable.open_eye)
+
+val CloseEyeIcon: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(R.drawable.close_eye)

@@ -1,4 +1,4 @@
-package com.example.sneakershopwsr.core.data.bd.daos
+package com.example.sneakershopwsr.core.data.local.daos
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -6,8 +6,8 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
-import com.example.sneakershopwsr.core.data.bd.entities.ProductEntity
-import com.example.sneakershopwsr.core.data.bd.entities.ProductWithImagesAndCategoriesAndBaskets
+import com.example.sneakershopwsr.core.data.local.entities.ProductEntity
+import com.example.sneakershopwsr.core.data.local.entities.ProductWithImagesAndCategoriesAndBaskets
 
 
 @Dao

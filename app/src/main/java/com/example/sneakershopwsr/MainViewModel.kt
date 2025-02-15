@@ -23,9 +23,10 @@ class MainViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             state = state.copy(
-                isLogged = sessionStorage.get(GlobalSessionKeys.KEY_AUTH_INFO) !== null,
+                isLogged = sessionStorage.get(GlobalSessionKeys.IS_LOGINED) !== null,
                 isFirstEntrance = sessionStorage.get(KEY_IS_FIRST_ENTRANCE) === null
             )
+            sessionStorage.set(KEY_IS_FIRST_ENTRANCE, AuthInfo(""))
         }
     }
 

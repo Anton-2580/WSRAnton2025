@@ -1,4 +1,4 @@
-package com.example.sneakershopwsr.core.data.bd.entities
+package com.example.sneakershopwsr.core.data.local.entities
 
 import androidx.room.Entity
 import androidx.room.ForeignKey

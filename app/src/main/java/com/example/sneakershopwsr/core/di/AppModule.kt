@@ -7,7 +7,7 @@ import androidx.room.Room
 import com.example.sneakershopwsr.BuildConfig
 import com.example.sneakershopwsr.auth.data.AuthSessionStorage
 import com.example.sneakershopwsr.auth.domain.AuthInfo
-import com.example.sneakershopwsr.core.data.bd.ShopDatabase
+import com.example.sneakershopwsr.core.data.local.ShopDatabase
 import com.example.sneakershopwsr.core.data.repository.DatabaseRepositoryImpl
 import com.example.sneakershopwsr.core.data.repository.FullStackDataInteractorImpl
 import com.example.sneakershopwsr.core.data.repository.SupabaseRepositoryImpl
@@ -19,7 +19,6 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
-import dagger.hilt.android.scopes.ViewModelScoped
 import dagger.hilt.components.SingletonComponent
 import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.auth.Auth
@@ -34,15 +33,13 @@ import javax.inject.Singleton
 object AppModule {
     @Provides
     @Singleton
-    fun provideSharedPreferences(@ApplicationContext context: Context): SharedPreferences {
-        return context.getSharedPreferences("Preferences", Context.MODE_PRIVATE)
-    }
+    fun provideSharedPreferences(@ApplicationContext context: Context): SharedPreferences =
+        context.getSharedPreferences("Preferences", Context.MODE_PRIVATE)
 
     @Provides
     @Singleton
-    fun provideSessionStorage(sharedPreferences: SharedPreferences): SessionStorage<AuthInfo> {
-        return AuthSessionStorage(sharedPreferences)
-    }
+    fun provideSessionStorageAuth(sharedPreferences: SharedPreferences): SessionStorage<AuthInfo> =
+        AuthSessionStorage(sharedPreferences)
 
     @Provides
     @Singleton

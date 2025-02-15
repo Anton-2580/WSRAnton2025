@@ -1,8 +1,6 @@
-package com.example.sneakershopwsr.shop.presentation.components
+package com.example.sneakershopwsr.core.presentation.components
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -22,7 +20,7 @@ fun TopActionLine(
     onRightButtonClick: (() -> Unit)? = null,
     colors: IconButtonColors = WhiteButtonIconColors,
     modifier: Modifier = Modifier,
-    content: @Composable () -> Unit,
+    content: (@Composable () -> Unit)? = null,
 ) {
     Box(
         modifier = modifier.fillMaxWidth(),
@@ -38,8 +36,10 @@ fun TopActionLine(
             )
         }
 
-        Box(modifier = Modifier.align(Alignment.Center)) {
-            content()
+        if (content !== null) {
+            Box(modifier = Modifier.align(Alignment.Center)) {
+                content()
+            }
         }
 
         if (rightIcon !== null && onRightButtonClick !== null) {

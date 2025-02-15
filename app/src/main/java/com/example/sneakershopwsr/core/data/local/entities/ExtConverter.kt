@@ -1,4 +1,4 @@
-package com.example.sneakershopwsr.core.data.bd.entities
+package com.example.sneakershopwsr.core.data.local.entities
 
 import com.example.sneakershopwsr.core.domain.models.BasketInfo
 import com.example.sneakershopwsr.core.domain.models.ProductCategoryInfo

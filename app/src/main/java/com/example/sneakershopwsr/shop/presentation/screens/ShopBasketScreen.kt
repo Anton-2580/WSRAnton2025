@@ -17,7 +17,7 @@ import com.example.sneakershopwsr.shop.domain.BottomMenuIcons
 import com.example.sneakershopwsr.shop.domain.SwipeableProductActions
 import com.example.sneakershopwsr.shop.presentation.components.ShopScaffold
 import com.example.sneakershopwsr.shop.presentation.components.SwipeableProduct
-import com.example.sneakershopwsr.shop.presentation.components.TopActionLine
+import com.example.sneakershopwsr.core.presentation.components.TopActionLine
 import com.example.sneakershopwsr.shop.presentation.view_models.BasketViewModel
 import com.example.sneakershopwsr.ui.theme.BackIcon
 import com.example.sneakershopwsr.ui.theme.Text

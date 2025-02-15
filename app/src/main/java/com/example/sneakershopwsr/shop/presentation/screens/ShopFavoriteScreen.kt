@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.sp
 import com.example.sneakershopwsr.R
 import com.example.sneakershopwsr.shop.domain.BottomMenuIcons
 import com.example.sneakershopwsr.shop.presentation.components.ShopScaffold
-import com.example.sneakershopwsr.shop.presentation.components.TopActionLine
+import com.example.sneakershopwsr.core.presentation.components.TopActionLine
 import com.example.sneakershopwsr.ui.theme.BackIcon
 import com.example.sneakershopwsr.ui.theme.LikeIcon
 import com.example.sneakershopwsr.ui.theme.Text

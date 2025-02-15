@@ -1,7 +1,6 @@
 package com.example.sneakershopwsr.core.navigation
 
 import android.os.Build
-import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
@@ -16,6 +15,7 @@ import com.example.sneakershopwsr.core.navigation.graphs.shopGraph
 import com.example.sneakershopwsr.core.navigation.graphs.splashGraph
 import kotlinx.serialization.Serializable
 
+import com.example.sneakershopwsr.core.navigation.graphs.AuthGraph
 
 @Composable
 fun NavigationRoot(

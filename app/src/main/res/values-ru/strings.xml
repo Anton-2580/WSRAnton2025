@@ -11,4 +11,10 @@
     <string name="you_have_the_power_to_description">В вашей комнате много красивых и привлекательных растений</string>
     <string name="sneaker_content_description">Кроссовок</string>
     <string name="home">Главная</string>
+    <string name="categories">Категории</string>
+    <string name="more">Все</string>
+    <string name="popular">Популярное</string>
+    <string name="stocks">Акции</string>
+    <string name="favorite">Избранное</string>
+    <string name="auth_comment">Заполните Свои данные или продолжите через социальные медиа</string>
 </resources>

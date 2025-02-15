@@ -4,8 +4,8 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
-import com.example.sneakershopwsr.auth.presentation.AuthLoginScreen
-import com.example.sneakershopwsr.auth.presentation.AuthRegistrationScreen
+import com.example.sneakershopwsr.auth.presentation.login.AuthLoginScreen
+import com.example.sneakershopwsr.auth.presentation.registration.AuthRegistrationScreen
 import kotlinx.serialization.Serializable
 
 
@@ -26,11 +26,15 @@ fun NavGraphBuilder.authGraph(navController: NavHostController) {
         composable<AuthLogin> {
             AuthLoginScreen(
                 onSuccessfulLogin = { navController.navigate(ShopHome) },
+                onBackButtonClick = { navController.popBackStack() },
+                onGoToRegister = { navController.navigate(AuthRegistration) }
             )
         }
         composable<AuthRegistration> {
             AuthRegistrationScreen(
                 onSuccessfulRegistration = { navController.navigate(ShopHome) },
+                onBackButtonClick = { navController.popBackStack() },
+                onGoToLogin = { navController.navigate(AuthLogin) },
             )
         }
     }
