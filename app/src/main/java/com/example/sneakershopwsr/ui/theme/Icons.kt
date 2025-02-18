@@ -76,3 +76,7 @@ val OpenEyeIcon: ImageVector
 val CloseEyeIcon: ImageVector
     @Composable
     get() = ImageVector.vectorResource(R.drawable.close_eye)
+
+val Email1Icon: ImageVector
+    @Composable
+    get() = ImageVector.vectorResource(R.drawable.email_1)

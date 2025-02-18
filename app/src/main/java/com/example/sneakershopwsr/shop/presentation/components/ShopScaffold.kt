@@ -18,8 +18,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.sneakershopwsr.core.presentation.components.BottomMenu
+import com.example.sneakershopwsr.core.presentation.components.getNewPaddingValues
 import com.example.sneakershopwsr.shop.domain.BottomMenuIcons
 
 
@@ -38,11 +40,9 @@ fun ShopScaffold(
         content = { innerPadding ->
             val bottomMenuHeightDp = remember { mutableStateOf(0.dp) }
 
-            val paddingValues = PaddingValues(
-                top = innerPadding.calculateTopPadding(),
-                bottom = innerPadding.calculateBottomPadding(),
-                start = innerPadding.calculateLeftPadding(LocalLayoutDirection.current) + 10.dp,
-                end = innerPadding.calculateRightPadding(LocalLayoutDirection.current) + 10.dp,
+            val paddingValues = getNewPaddingValues(
+                innerPadding = innerPadding,
+                horizontalPadding = 10.dp,
             )
 
             val localDensity = LocalDensity.current

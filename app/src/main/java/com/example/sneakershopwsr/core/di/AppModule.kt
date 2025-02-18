@@ -5,12 +5,15 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.room.Room
 import com.example.sneakershopwsr.BuildConfig
+import com.example.sneakershopwsr.auth.data.AuthInfoConverter
+import com.example.sneakershopwsr.auth.data.AuthInfoSerializable
 import com.example.sneakershopwsr.auth.data.AuthSessionStorage
 import com.example.sneakershopwsr.auth.domain.AuthInfo
 import com.example.sneakershopwsr.core.data.local.ShopDatabase
 import com.example.sneakershopwsr.core.data.repository.DatabaseRepositoryImpl
 import com.example.sneakershopwsr.core.data.repository.FullStackDataInteractorImpl
 import com.example.sneakershopwsr.core.data.repository.SupabaseRepositoryImpl
+import com.example.sneakershopwsr.core.domain.Converter
 import com.example.sneakershopwsr.core.domain.SessionStorage
 import com.example.sneakershopwsr.core.domain.repository.DatabaseRepository
 import com.example.sneakershopwsr.core.domain.repository.FullStackDataInteractor
@@ -25,6 +28,7 @@ import io.github.jan.supabase.auth.Auth
 import io.github.jan.supabase.createSupabaseClient
 import io.github.jan.supabase.postgrest.Postgrest
 import io.github.jan.supabase.storage.Storage
+import javax.inject.Named
 import javax.inject.Singleton
 
 
@@ -38,8 +42,18 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideSessionStorageAuth(sharedPreferences: SharedPreferences): SessionStorage<AuthInfo> =
-        AuthSessionStorage(sharedPreferences)
+    @Named("AuthInfoConverter")
+    fun provideConverter(): Converter<AuthInfoSerializable, AuthInfo> = AuthInfoConverter()
+
+    @Provides
+    @Singleton
+    fun provideSessionStorageAuth(
+        sharedPreferences: SharedPreferences,
+        @Named("AuthInfoConverter") authConverter: Converter<AuthInfoSerializable, AuthInfo>,
+    ): SessionStorage<AuthInfo> = AuthSessionStorage(
+        sharedPreferences = sharedPreferences,
+        converter = authConverter,
+    )
 
     @Provides
     @Singleton

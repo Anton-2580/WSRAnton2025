@@ -1,6 +1,7 @@
 package com.example.sneakershopwsr.auth.presentation.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,7 +20,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.sneakershopwsr.auth.presentation.BaseAuthViewModel
-import com.example.sneakershopwsr.core.data.network.NetworkEvents
+import com.example.sneakershopwsr.core.data.network.BaseEvents
+import com.example.sneakershopwsr.core.presentation.components.getNewPaddingValues
 import com.example.sneakershopwsr.ui.theme.AccentButtonColors
 import com.example.sneakershopwsr.ui.theme.Block
 import com.example.sneakershopwsr.ui.theme.Hint
@@ -31,9 +33,10 @@ fun AuthScreen(
     onBackButtonClick: () -> Unit,
     textTitle: String,
     textComment: String,
-    textButton: String,
+    textButton: String? = null,
+    onClick: () -> Unit = {},
     viewModel: BaseAuthViewModel,
-    onClick: () -> Unit,
+    verticalArrangement: Arrangement.Vertical = Arrangement.spacedBy(30.dp),
     onNetworkLoading: () -> Unit = {},
     onNetworkSuccessful: () -> Unit = {},
     content: @Composable BoxScope.() -> Unit = {},
@@ -43,15 +46,19 @@ fun AuthScreen(
     Scaffold { innerPadding ->
         Box(
             modifier = Modifier
-                .padding(innerPadding)
                 .fillMaxSize()
                 .background(Block)
+                .padding(getNewPaddingValues(
+                    innerPadding = innerPadding,
+                    horizontalPadding = 20.dp,
+                ))
         ) {
             AuthScreenStart(
                 textTitle = textTitle,
                 textComment = textComment,
                 onBackButtonClick = onBackButtonClick,
                 modifier = modifier,
+                verticalArrangement = verticalArrangement,
             ) {
                 fields()
 
@@ -60,12 +67,12 @@ fun AuthScreen(
                 LaunchedEffect(Unit) {
                     viewModel.eventFlow.collectLatest {
                         when (it) {
-                            is NetworkEvents.Error -> {
+                            is BaseEvents.Error -> {
                                 textDialog.value = it.message
                                 typeTextDialog.value = "Error"
                             }
-                            NetworkEvents.Loading -> onNetworkLoading()
-                            NetworkEvents.Successful -> onNetworkSuccessful()
+                            BaseEvents.Loading -> onNetworkLoading()
+                            BaseEvents.Successful -> onNetworkSuccessful()
                         }
                     }
                 }
@@ -78,18 +85,20 @@ fun AuthScreen(
                     )
                 }
 
-                val colors = if (viewModel.loginRegisterState.value.canSign) AccentButtonColors
-                else AccentButtonColors.copy(disabledContainerColor = Hint)
-                Button(
-                    onClick = onClick,
-                    colors = colors,
-                    enabled = viewModel.loginRegisterState.value.canSign,
-                    shape = RoundedCornerShape(20),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(60.dp)
-                ) {
-                    Text(text = textButton)
+                if (textButton !== null) {
+                    val colors = if (viewModel.loginRegisterState.value.canSign) AccentButtonColors
+                                 else AccentButtonColors.copy(disabledContainerColor = Hint)
+                    Button(
+                        onClick = onClick,
+                        colors = colors,
+                        enabled = viewModel.loginRegisterState.value.canSign,
+                        shape = RoundedCornerShape(20),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(60.dp)
+                    ) {
+                        Text(text = textButton)
+                    }
                 }
             }
 

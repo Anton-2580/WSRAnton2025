@@ -29,7 +29,7 @@ class AuthInteractorImpl(
     }
 
     override suspend fun editUserInfo(info: UserInfo) {
-        authSupabaseRepository.editUserInfo(info)
+        authSupabaseRepository.editUserInfo(info, UserInfo(email = info.email))
     }
 
     override suspend fun getUserInfo(): UserInfo {

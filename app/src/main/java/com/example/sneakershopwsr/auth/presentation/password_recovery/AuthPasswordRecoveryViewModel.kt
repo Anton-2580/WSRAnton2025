@@ -26,7 +26,7 @@ class AuthPasswordRecoveryViewModel @Inject constructor(
     }
 
     fun sendOtp() {
-        workWithData {
+        workWithData<Exception> {
             supabaseRepository.sendOTP(loginRegisterState.value.email.text.toString())
         }
     }

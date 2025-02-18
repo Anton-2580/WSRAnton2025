@@ -22,13 +22,14 @@ class AuthLoginViewModel @Inject constructor(
             snapshotFlow { loginRegisterState.value.password.text },
         ) { email, password ->
             _loginRegisterState.value = loginRegisterState.value.copy(
-                canSign = password.isNotBlank() && userDataValidator.isEmailValid(email.toString())
+                canSign = userDataValidator.isPasswordValid(password.toString()) &&
+                          userDataValidator.isEmailValid(email.toString())
             )
         }.launchIn(viewModelScope)
     }
 
     fun signIn() {
-        workWithData {
+        workWithData<Exception> {
             authInteractor.signIn(
                 email = loginRegisterState.value.email.text.toString(),
                 password = loginRegisterState.value.password.text.toString(),

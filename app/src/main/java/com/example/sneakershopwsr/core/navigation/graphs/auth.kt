@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import com.example.sneakershopwsr.auth.presentation.login.AuthLoginScreen
+import com.example.sneakershopwsr.auth.presentation.password_recovery.AuthPasswordRecoveryCodeScreen
 import com.example.sneakershopwsr.auth.presentation.password_recovery.AuthPasswordRecoveryScreen
 import com.example.sneakershopwsr.auth.presentation.profile.ProfileScreen
 import com.example.sneakershopwsr.auth.presentation.registration.AuthRegistrationScreen
@@ -22,6 +23,11 @@ data object AuthLogin
 
 @Serializable
 data object AuthPasswordRecovery
+
+@Serializable
+data class AuthPasswordRecoveryCode(
+    val email: String,
+)
 
 @Serializable
 data object Profile
@@ -52,6 +58,18 @@ fun NavGraphBuilder.authGraph(navController: NavHostController) {
         composable<AuthPasswordRecovery> {
             AuthPasswordRecoveryScreen(
                 onBackButtonClick = backClick,
+                onGoToNextScreen = { email ->
+                    navController.navigate(AuthPasswordRecoveryCode(
+                        email = email
+                    ))
+                },
+            )
+        }
+
+        composable<AuthPasswordRecoveryCode> {
+            AuthPasswordRecoveryCodeScreen(
+                onBackButtonClick = backClick,
+                onGoToNextScreen = { navController.navigate(ShopHome) },
             )
         }
 

@@ -44,14 +44,14 @@ class ProfileViewModel @Inject constructor(
     }
 
     private fun editUserInfo() {
-        workWithData {
+        workWithData<Exception> {
             authInteractor.editUserInfo(userInfoState.value.toUserInfo())
         }
 
     }
 
     private fun getUserInfo() {
-        workWithData {
+        workWithData<Exception> {
             _userInfoState.value = authInteractor.getUserInfo().toUserInfoState()
         }
     }

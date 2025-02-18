@@ -28,7 +28,7 @@
     <string name="sign_up">Зарегистрироваться</string>
     <string name="have_accaunt">Есть аккаунт? </string>
     <string name="go_to_login">Войти</string>
-    <string name="name">Имя</string>
+    <string name="name">Ваше имя</string>
     <string name="basket">Корзина</string>
     <string name="profile_name">Профиль</string>
     <string name="basket_name">Корзина</string>
@@ -39,4 +39,10 @@
     <string name="logout_name">Выйти</string>
     <string name="password_recovery_name">Забыл Пароль</string>
     <string name="enter_your_ata_for_reset">Введите свою учетную запись для сброса</string>
+
+    <plurals name="products_in_basket">
+        <item quantity="one">%d товар</item>
+        <item quantity="many">%d товаров</item>
+        <item quantity="few">%d товара</item>
+    </plurals>
 </resources>

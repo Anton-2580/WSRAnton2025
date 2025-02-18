@@ -31,7 +31,7 @@ class AuthRegisterViewModel @Inject constructor(
     }
 
     fun signUp() {
-        workWithData {
+        workWithData<Exception> {
             authInteractor.signUp(
                 email = loginRegisterState.value.email.text.toString(),
                 password = loginRegisterState.value.password.text.toString(),

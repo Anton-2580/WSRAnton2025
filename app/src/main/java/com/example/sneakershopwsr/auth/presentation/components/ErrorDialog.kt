@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
-import androidx.compose.ui.window.DialogProperties
 
 
 @Composable
@@ -24,9 +23,6 @@ fun ErrorDialog(
     if (text !== null && title !== null) {
         Dialog(
             onDismissRequest = onDismissRequest,
-            properties = DialogProperties(
-                dismissOnClickOutside = true
-            )
         ) {
             Surface(
                 shape = RoundedCornerShape(20),

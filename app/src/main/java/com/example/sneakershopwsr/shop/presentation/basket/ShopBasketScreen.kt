@@ -5,6 +5,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -46,7 +47,12 @@ fun ShopBasketScreen(
                     )
                 }
 
-                Text(text = viewModel.products.value.size.toString() + stringResource(R.string.products_in_basket))
+                val pluralString = pluralStringResource(
+                    R.plurals.products_in_basket,
+                    viewModel.products.value.size,
+                    viewModel.products.value.size,
+                )
+                Text(text = pluralString)
             }
 
             items(viewModel.products.value) {

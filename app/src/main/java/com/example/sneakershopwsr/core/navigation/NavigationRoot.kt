@@ -15,6 +15,7 @@ import com.example.sneakershopwsr.core.navigation.graphs.shopGraph
 import com.example.sneakershopwsr.core.navigation.graphs.splashGraph
 import kotlinx.serialization.Serializable
 
+import com.example.sneakershopwsr.core.navigation.graphs.AuthGraph
 
 @Composable
 fun NavigationRoot(
@@ -29,7 +30,8 @@ fun NavigationRoot(
 
     NavHost(
         navController = navController,
-        startDestination = if (showSplashScreen) SplashGraph else getNextScreen(),
+//        startDestination = if (showSplashScreen) SplashGraph else getNextScreen(),
+        startDestination = AuthGraph,
     ) {
         splashGraph(
             navController = navController,
